@@ -1,0 +1,46 @@
+CREATE DATABASE badminton;
+USE badminton;
+
+CREATE TABLE client(
+
+	ID int PRIMARY KEY AUTO_INCREMENT,
+	nom varchar(50),
+	prenom varchar(50),
+	email varchar(50),
+	date_de_naissance date,
+	adresse varchar(50),
+	mot_de_passe varchar(50),
+	ID_adm int
+
+
+);
+
+CREATE TABLE terrain(
+
+	ID int PRIMARY KEY AUTO_INCREMENT
+
+
+);
+
+
+CREATE TABLE reservation(
+
+	ID int,
+	type_terrain varchar(50),
+	id_client_1 int,
+	id_client_2 int,
+	id_client_3 int,
+	id_client_4 int,
+	ID_terrain int,
+	date_debut_reservation date,
+	date_fin_reservation date,
+
+	FOREIGN KEY (ID_terrain)
+	REFERENCES terrain(ID)
+
+);
+
+
+
+
+
