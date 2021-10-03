@@ -13,7 +13,7 @@ $userexist=$requser->rowCount();
 
 if ($userexist==1)
  {
-		echo 'vous exister bien coool';
+		echo '<strong>'.'Vous êtes bien connecter '.$_POST['nom'].'</strong>';
 }
 	else	
 {
@@ -21,3 +21,27 @@ if ($userexist==1)
 }
 
 ?>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Portail de votre compte</title>
+</head>
+<body>
+	<h1>Veuillez choisir ce que vous voulez faire</h1>
+
+	<a href="liste des adherents.PHP"><input type="submit" value="Voir liste des adherents"></a>
+	<a href="reserver_terrain.php"><input type="submit" value="Reserver un terrain"></a>
+	<a href="voir_terrain_disponible.PHP"><input type="submit" value="Voir les terrain disponible"></a>
+	
+
+	<!--
+
+	consulter liste adherent
+	//reserver un terrain
+	// voir les terrain disponible
+	//rechercher un autre adherent (nom email trié liste par nom)</!-->
+
+</body>
+</html>
