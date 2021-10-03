@@ -4,12 +4,12 @@
 
 <?php
 
-echo $_POST['nom'], $_POST['prenom'],$_POST['email'],
-		 $_POST['adresse'],
+/*echo $_POST['nom'], $_POST['prenom'],$_POST['email'],
+		 /*$_POST['adresse'],
 		 $_POST['date_naissance'],
 		 $_POST['date_adhesion'],
-		 $_POST['mots_de_passe'];
-
+		 $_POST['mot_de_passe'];
+*/
 
 
 	$bdd = new PDO('mysql:host=localhost;dbname=badminton;charset=utf8', 'root', '');
