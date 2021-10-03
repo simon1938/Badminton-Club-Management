@@ -7,16 +7,23 @@
 <body>
 	<h1>Bienvenue sur le site du club de Badminton</h1>
 
-	<form method="post" action="traitement.php">
+	<form method="post" action="connection_compte.PHP">
 
 		<fieldset>
 			<legend>Vous connnecter</legend>
 
-			<label for="pseudo">Votre Pseudo</label>
-			<input type="text" name="pseudo" id="pseudo" maxlength="25" placeholder="jean Lassalle :) ">
 
-			<label for="mots_de_passe">Entrez votre mot de passe</label>
-			<input type="password" name="mots_de_passe" id="mots_de_passe" >
+			<form action="connection_compte.PHP" method="post">
+
+			<label for="nom">Votre Nom</label>
+			<input type="text" name="nom" id="nom" maxlength="25" placeholder="jean Lassalle :) ">
+
+			<label for="mot_de_passe">Entrez votre mot de passe</label>
+			<input type="text" name="mot_de_passe" id="mot_de_passe" >
+
+			<input type="submit" name="Valider">
+
+				</form>
 
 		</fieldset>
 
@@ -28,3 +35,4 @@
 	
 </body>
 </html>
+
