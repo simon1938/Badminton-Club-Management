@@ -27,7 +27,7 @@
 		 
 		 )); 
 
-
+		
 ?>
 
-<a href="project_IFD.html">Retourner surl'écran d'acceuil</a
+<a href="Page_acceuil.html">Retourner surl'écran d'acceuil</a

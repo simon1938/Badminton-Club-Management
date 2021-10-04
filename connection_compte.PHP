@@ -5,20 +5,23 @@ $bdd = new PDO('mysql:host=localhost;dbname=badminton;charset=utf8', 'root', '')
 $nom=$_POST['nom'];
 $mot_de_passe=$_POST['mot_de_passe'];
 */
-
+$nom=$_POST['nom'];
+$mot_de_passe=$_POST['mot_de_passe'];
 
 $requser=$bdd->prepare("SELECT nom,mot_de_passe FROM adherent WHERE nom=? AND mot_de_passe =?");
-$requser->execute(array($_POST['nom'],$_POST['mot_de_passe']));
+$requser->execute(array($nom,$mot_de_passe));
 $userexist=$requser->rowCount();
 
 if ($userexist==1)
  {
-		echo '<strong>'.'Vous êtes bien connecter '.$_POST['nom'].'</strong>';
+		echo '<strong>'.'Vous êtes bien connecter '.$nom.'</strong>';
 }
 	else	
-{
-	echo'erreur';
-}
+	{
+		
+		header("Location: Page_acceuil.html");
+
+}	
 
 ?>
 
