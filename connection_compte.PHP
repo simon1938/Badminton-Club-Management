@@ -17,7 +17,7 @@ else{
 
 	$nom=$_POST['nom'];
 	$mot_de_passe=$_POST['mot_de_passe'];
-}
+	}
 
 
 $requser=$bdd->prepare("SELECT nom,mot_de_passe FROM adherent WHERE nom=? AND mot_de_passe =?");
@@ -31,6 +31,10 @@ if ($userexist==1)
 		$_SESSION['nom']=$nom;
 		$_SESSION['mot_de_passe']=$mot_de_passe;
 		$_SESSION['session_active']=1;
+
+
+		setcookie('nom',$_POST['nom'],time()+30*60);
+		
 
 }
 	else	
