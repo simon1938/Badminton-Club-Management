@@ -33,7 +33,7 @@ $_SESSION['session_active']=0;
 
 		</fieldset>
 		
-		<a href="Creation_compte.html">Ce Créer un compte</a>
+		<a href="Formulaire_Creation_compte.php">Ce Créer un compte</a>
 
 
 	</form>

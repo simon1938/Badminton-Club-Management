@@ -33,9 +33,7 @@ if ($userexist==1)
 		$_SESSION['session_active']=1;
 
 
-		setcookie('nom',$_POST['nom'],time()+30*60);
 		
-
 }
 	else	
 	{
@@ -58,7 +56,7 @@ if ($userexist==1)
 	<h1>Veuillez choisir ce que vous voulez faire</h1>
 
 	<a href="liste des adherents.PHP"><input type="submit" value="Voir liste des adherents"></a>
-	<a href="reserver_terrain.php"><input type="submit" value="Reserver un terrain"></a>
+	<a href="reservation_terrain.php"><input type="submit" value="Reserver un terrain"></a>
 	<a href="voir_terrain_disponible.PHP"><input type="submit" value="Voir les terrain disponible"></a>
 	
 
