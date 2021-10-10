@@ -39,10 +39,17 @@
 		<fieldset>
 		<from methode="post" action="">
 
-		<label for="type_materiel">Type de matériel</label>
-		<p><input type="text" name="type_materiel"></p>
 		
-		<label for="date_emprunt">date de l'emprunt</label>
+		<label for="type_materiel">Type de matériel<br><br></label>
+
+		<select name="materiel">
+    		<option value="">--Veuillez sélectionner le matériel que vous souhaitez louer--</option>
+    		<option value="raquette">Dog</option>
+    		<option value="vollant">Cat</option>
+    		<option value="tenue">Hamster</option>
+		</select>
+		
+		<label for="date_emprunt"><br><br>date de l'emprunt</label>
 		<p><input type="date" name="date_emprunt"></p>
 		
 		<label for="date_retour">date de retour</label>
