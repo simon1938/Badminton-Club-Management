@@ -34,7 +34,29 @@
 		echo $donnees['quantite'].' '.$donnees['type_materiel'].' du '.$donnees['date_emprunt'].' au '.$donnees['date_retour'].'<br />';
 		}
 	}
+	if (isset($_POST['BT_new_loc'])){
+		?>
+		<fieldset>
+		<from methode="post" action="">
+
+		<label for="type_materiel">Type de matériel</label>
+		<p><input type="text" name="type_materiel"></p>
+		
+		<label for="date_emprunt">date de l'emprunt</label>
+		<p><input type="date" name="date_emprunt"></p>
+		
+		<label for="date_retour">date de retour</label>
+		<p><input type="date" name="date_retour"></p>
+		
+		<label for="quantite">Quantité</label>
+		<p><input type="text" name="quantite"></p>
+		
+		</fieldset>
+		<?php
+
+	}
 
 	?>
+	<a href="connection_compte.PHP">Retourner sur votre espace utilisateur</a>
 </body>
 </html>
