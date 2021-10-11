@@ -21,7 +21,7 @@
 
 
 <?php
-	$bdd = new PDO('mysql:host=localhost;dbname=badminton', 'root', 'root');
+	$bdd = new PDO('mysql:host=localhost;dbname=badminton', 'root', '');
 
 	if (isset($_POST['BT_loc']))
  	{
@@ -37,16 +37,16 @@
 	if (isset($_POST['BT_new_loc'])){
 		?>
 		<fieldset>
-		<from methode="post" action="">
+		<form method="post">
 
 		
 		<label for="type_materiel">Type de matériel<br><br></label>
 
 		<select name="materiel">
     		<option value="">--Veuillez sélectionner le matériel que vous souhaitez louer--</option>
-    		<option value="raquette">Dog</option>
-    		<option value="vollant">Cat</option>
-    		<option value="tenue">Hamster</option>
+    		<option value="raquette">raquette</option>
+    		<option value="vollant">vollant</option>
+    		<option value="tenue">tenue</option>
 		</select>
 		
 		<label for="date_emprunt"><br><br>date de l'emprunt</label>
@@ -58,12 +58,23 @@
 		<label for="quantite">Quantité</label>
 		<p><input type="text" name="quantite"></p>
 		
+		<input type="submit" name="Valider" value="Valider">
+		</form>
 		</fieldset>
-		<?php
-
+	<?php
+	if (isset($_POST['Valider'])){
+	$req=$bdd->prepare('INSERT INTO materiel(type_materiel, date_emprunt, date_retour, quantite) VALUES (?,?,?,?)');
+	$req->execute(array(
+		 $_POST['materiel'],
+		 $_POST['date_emprunt'],
+		 $_POST['date_retour'],
+		 $_POST['quantite'],
+		 
+		 ));
 	}
-
+	}
 	?>
+	
 	<a href="connection_compte.PHP">Retourner sur votre espace utilisateur</a>
 </body>
 </html>
