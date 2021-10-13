@@ -1,7 +1,11 @@
 <?php 
 	session_start();
+	$bdd = new PDO('mysql:host=localhost;dbname=badminton', 'root', 'root');
 
 	$nom=$_SESSION['nom'];
+	$req = $bdd->prepare('SELECT id FROM `adherent` WHERE email = ?');
+	$req->execute(array($_SESSION['email']));
+	while ($donnees = $req->fetch()){$id = $donnees['id'];};
 ?>
 
 <!DOCTYPE html>
@@ -15,16 +19,16 @@
 	<fieldset>
 		<legend>Vos locations en cours</legend>
 			<?php
-				$bdd = new PDO('mysql:host=localhost;dbname=badminton', 'root', 'root');
 
-				$requete = $bdd->prepare("SELECT type_materiel, date_emprunt, date_retour, quantite FROM materiel INNER JOIN adherent ON id_emprunteur = adherent.id WHERE nom = ?");
+				$requete = $bdd->prepare("SELECT type_materiel, date_emprunt, date_retour, quantite FROM materiel INNER JOIN adherent ON id_emprunteur = adherent.id WHERE adherent.id = ?");
 
-				$requete->execute(array($nom));
+				$requete->execute(array($id));
 
 				while ($donnees=$requete->fetch()) 
 				{
 					echo $donnees['quantite'].' '.$donnees['type_materiel'].' du '.$donnees['date_emprunt'].' au '.$donnees['date_retour'].'<br />';
 				}
+
 			?>	
 	</fieldset>
 	<br>
@@ -36,12 +40,14 @@
 	
 		if (isset($_POST['Valider']))
 		{
-			$req=$bdd->prepare('INSERT INTO materiel(date_emprunt, type_materiel, date_retour, quantite) VALUES (?,?,?,?)');
+			$req=$bdd->prepare('INSERT INTO materiel(date_emprunt,id_emprunteur, type_materiel, date_retour, quantite) VALUES (?,?,?,?,?)');
 			$req->execute(array(
 			$_POST['date_emprunt'],
-			 $_POST['type_materiel'],
-			 $_POST['date_retour'],
-			 $_POST['quantite']));
+			$id,
+			$_POST['type_materiel'],
+			$_POST['date_retour'],
+			$_POST['quantite']));
+
 		}
 	
 	?>
