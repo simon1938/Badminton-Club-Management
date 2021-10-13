@@ -2,7 +2,6 @@
 	session_start();
 
 	$nom=$_SESSION['nom'];
-	$id = query(SEL)
 ?>
 
 <!DOCTYPE html>

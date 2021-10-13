@@ -9,26 +9,26 @@ $mot_de_passe=$_POST['mot_de_passe'];
 
 if ($_SESSION['session_active']==1)
  {
-	$nom=$_SESSION['nom'];
+	$email=$_SESSION['email'];
 	$mot_de_passe=$_SESSION['mot_de_passe'];
 
 }
 else{
 
-	$nom=$_POST['nom'];
+	$email=$_POST['email'];
 	$mot_de_passe=$_POST['mot_de_passe'];
 	}
 
 
-$requser=$bdd->prepare("SELECT nom,mot_de_passe FROM adherent WHERE nom=? AND mot_de_passe =?");
-$requser->execute(array($nom,$mot_de_passe));
+$requser=$bdd->prepare("SELECT email,mot_de_passe FROM adherent WHERE email=? AND mot_de_passe =?");
+$requser->execute(array($email,$mot_de_passe));
 $userexist=$requser->rowCount();
 
 
 if ($userexist==1)
  {
-		echo '<strong>'.'Vous êtes bien connecter '.$nom.'</strong>';
-		$_SESSION['nom']=$nom;
+		echo '<strong>'.'Vous êtes bien connecter '.$email.'</strong>';
+		$_SESSION['email']=$email;
 		$_SESSION['mot_de_passe']=$mot_de_passe;
 		$_SESSION['session_active']=1;
 

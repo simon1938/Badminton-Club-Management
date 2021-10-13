@@ -20,8 +20,8 @@ $_SESSION['session_active']=0;
 
 			<form action="connection_compte.PHP" method="post">
 
-			<label for="nom">Votre Nom</label>
-			<input type="text" name="nom" id="nom" maxlength="25" placeholder="jean Lassalle :) ">
+			<label for="email">Votre Email</label>
+			<input type="text" name="email" id="email" maxlength="100" placeholder="jeanlassalle@gmail.com">
 
 			<label for="mot_de_passe">Entrez votre mot de passe</label>
 			<input type="text" name="mot_de_passe" id="mot_de_passe" >
