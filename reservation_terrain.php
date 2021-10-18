@@ -19,23 +19,47 @@
 		<label for="horaire">Votre Horaire</label>
 		<p><input type="time" name="horaire"></p>
 		
-		<label for="type_terrain">Type de Terrain</label>
-		<p><input type="text" name="type_terrain"></p>
+            <p><label for="type_terrain">Type de Terrain</label></p>
+            <select name="type_terrain">
+            <option value="Simple">Simple</option>
+            <option value="Double">Double</option>
+           <p> </select></p>
+
+
+            <p><label for="nombre_invite">Selectionner le nombre d'adherents avec qui vous voulez jouer </label></p>
+            <select name="nombre_invite">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+                <p></select></p>
+
+
+
+        <?php
+        if(isset($_POST['1'])){
+            echo 'salut la co';
+
+        }
+
+        ?>
+
+
+
 		
 		<label for="autre_adherent">Adherent partageant votre réservation </label>
-		<select name="autre_adherent">
+		<p><select name="autre_adherent"></p>
 
 		<?php
 
 		$bdd = new PDO('mysql:host=localhost;dbname=badminton;charset=utf8', 'root', '');
 
 		$reponse=$bdd->query('SELECT nom FROM adherent');
-
+        $reponse->execute();
 
 		while ($donnees=$reponse->fetch())
 		 {
 		 	?>
-		 	<option value="<?php echo $donnees['nom'];?>" <?php echo $donnees['nom'];?> </option>
+		 	<option value="<?php echo $donnees['nom'];?>"> <?php echo $donnees['nom'];?> </option>
 		 
 					 
 		 
