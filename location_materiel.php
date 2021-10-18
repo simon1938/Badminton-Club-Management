@@ -1,11 +1,8 @@
 <?php 
 	session_start();
-	$bdd = new PDO('mysql:host=localhost;dbname=badminton', 'root', 'root');
+	$bdd = new PDO('mysql:host=localhost;dbname=badminton', 'root', '');
 
-	$nom=$_SESSION['nom'];
-	$req = $bdd->prepare('SELECT id FROM `adherent` WHERE email = ?');
-	$req->execute(array($_SESSION['email']));
-	while ($donnees = $req->fetch()){$id = $donnees['id'];};
+	$id = $_SESSION['id'];
 ?>
 
 <!DOCTYPE html>

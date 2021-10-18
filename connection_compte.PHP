@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$bdd = new PDO('mysql:host=localhost;dbname=badminton', 'root', 'root');
+$bdd = new PDO('mysql:host=localhost;dbname=badminton', 'root', '');
 /*
 $nom=$_POST['nom'];
 $mot_de_passe=$_POST['mot_de_passe'];
@@ -27,13 +27,19 @@ $userexist=$requser->rowCount();
 
 if ($userexist==1)
  {
-		echo '<strong>'.'Vous êtes bien connecter '.$email.'</strong>';
-		$_SESSION['email']=$email;
-		$_SESSION['mot_de_passe']=$mot_de_passe;
-		$_SESSION['session_active']=1;
+     $req = $bdd->prepare('SELECT id, nom, prenom FROM `adherent` WHERE email = ?');
+     $req->execute(array($_SESSION['email']));
+     while ($donnees = $req->fetch()){$id = $donnees['id']; $nom = $donnees['nom']; $prenom = $donnees['prenom'];};
 
+     $_SESSION['email']=$email;
+     $_SESSION['mot_de_passe']=$mot_de_passe;
+     $_SESSION['session_active']=1;
+     $_SESSION['id']=$id;
+     $_SESSION['nom']=$nom;
+     $_SESSION['prenom']=$prenom;
 
-		
+     echo '<strong>'.'Vous êtes bien connecter '.$_SESSION['prenom'].' '.$_SESSION['nom'].'</strong>';
+
 }
 	else	
 	{

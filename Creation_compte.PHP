@@ -37,12 +37,6 @@ if(empty($_POST['nom'])||
 
 		}
 
-elseif($nom)
-	{
-				echo'nom existe déja';
-				?><br /><a href="Formulaire_Creation_compte.php">Réessayer</a> <?php
-
-	}
 elseif($email)
 	{
 				echo'email existe déja';
