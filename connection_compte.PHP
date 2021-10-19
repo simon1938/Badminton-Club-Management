@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$bdd = new PDO('mysql:host=localhost;dbname=badminton', 'root', '');
+$bdd = new PDO('mysql:host=localhost;dbname=badminton', 'root', 'root');
 /*
 $nom=$_POST['nom'];
 $mot_de_passe=$_POST['mot_de_passe'];
@@ -68,6 +68,8 @@ if ($userexist==1)
 	<a href="voir_terrain_disponible.PHP"><input type="submit" value="Voir les terrain disponible"></a>
 	<br><br>
 	<a href="location_materiel.PHP"><input type="submit" value="Location de materiel"></a>
+	<br><br>
+	<a href="cours2.PHP"><input type="submit" value="cours"></a>
 
 	<!--
 
