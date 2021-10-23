@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$bdd = new PDO('mysql:host=localhost;dbname=badminton', 'root', 'root');
+$bdd = new PDO('mysql:host=localhost;dbname=badminton', 'root', '');
 /*
 $nom=$_POST['nom'];
 $mot_de_passe=$_POST['mot_de_passe'];
@@ -28,7 +28,7 @@ $userexist=$requser->rowCount();
 if ($userexist==1)
  {
      $req = $bdd->prepare('SELECT id, nom, prenom FROM `adherent` WHERE email = ?');
-     $req->execute(array($_SESSION['email']));
+     $req->execute(array($email));
      while ($donnees = $req->fetch()){$id = $donnees['id']; $nom = $donnees['nom']; $prenom = $donnees['prenom'];};
 
      $_SESSION['email']=$email;
@@ -70,7 +70,9 @@ if ($userexist==1)
 	<a href="location_materiel.PHP"><input type="submit" value="Location de materiel"></a>
 	<br><br>
 	<a href="cours2.PHP"><input type="submit" value="cours"></a>
+    <br><br>
 
+    <a href="Page_acceuil.php"><input type="submit" value="Déconnexion"></a>
 	<!--
 
 	consulter liste adherent

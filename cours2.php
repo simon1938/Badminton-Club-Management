@@ -22,23 +22,12 @@ if(isset($_POST['envoyer'])) {
         echo 'Vous avez choisis l\'option date';
         ?>
         <fieldset>
-            <form method="post">
-                <label>Sélectionner un jour<input type="date" name="jour" max="01/01/2023"> </label>
+            <form method="post" action="enregistrement_cours.php">
+                <label>Sélectionner un jour<input type="date" name="jour" max="2023-01-01" required> </label>
                 <br><br>
-                <label>Sélectionner une plage horaire
-                    <select>
-                        <option>8:00 - 9:00</option>
-                        <option>9:00 - 10:00</option>
-                        <option>10:00 - 11:00</option>
-                        <option>11:00 - 12:00</option>
-                        <option>12:00 - 13:00</option>
-                        <option>13:00 - 14:00</option>
-                        <option>14:00 - 15:00</option>
-                        <option>15:00 - 16:00</option>
-                        <option>16:00 - 17:00</option>
-                    </select> </label>
+                <label>Sélectionner une plage horaire<input type="time" name="heure" min="08:00" max="19:00" step="3600" required></label>
                 <br><br>
-                <input type="submit" name="envoyer">
+                <input type="submit" name="envoyer2">
             </form>
         </fieldset>
         <?php

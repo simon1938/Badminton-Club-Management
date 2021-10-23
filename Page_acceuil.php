@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION = array();
 setcookie('nom','philipe',time()+60*30);
 $_SESSION['session_active']=0;
 ?>

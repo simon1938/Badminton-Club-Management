@@ -60,7 +60,6 @@ echo'yolamoula';
 		 $_POST['date_naissance'],
 		 $_POST['date_adhesion'],
 		 $_POST['mot_de_passe'],
-		 
 		 )); 
 
 		}
