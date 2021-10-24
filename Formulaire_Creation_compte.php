@@ -31,7 +31,7 @@
 
 			
 			<label for="mot_de_passe">Mot de passe</label>
-			<input type="text" name="mot_de_passe" id="mot_de_passe">
+			<input type="password" name="mot_de_passe" id="mot_de_passe">
 
 			<input type="submit" name="Valider">
 		

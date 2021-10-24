@@ -25,7 +25,7 @@ $_SESSION['session_active']=0;
 			<input type="text" name="email" id="email" maxlength="100" placeholder="jeanlassalle@gmail.com">
 
 			<label for="mot_de_passe">Entrez votre mot de passe</label>
-			<input type="text" name="mot_de_passe" id="mot_de_passe" >
+			<input type="password" name="mot_de_passe" id="mot_de_passe" >
 
 			<input type="submit" name="Valider">
 

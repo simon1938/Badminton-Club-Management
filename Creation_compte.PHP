@@ -59,7 +59,7 @@ echo'yolamoula';
 		 $_POST['adresse'],
 		 $_POST['date_naissance'],
 		 $_POST['date_adhesion'],
-		 $_POST['mot_de_passe'],
+		 password_hash($_POST['mot_de_passe'], PASSWORD_DEFAULT),
 		 )); 
 
 		}

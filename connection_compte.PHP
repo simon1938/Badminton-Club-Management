@@ -8,24 +8,24 @@ $mot_de_passe=$_POST['mot_de_passe'];
 */
 
 if ($_SESSION['session_active']==1)
- {
-	$email=$_SESSION['email'];
-	$mot_de_passe=$_SESSION['mot_de_passe'];
+{
+     $email=$_SESSION['email'];
+     $mot_de_passe=$_SESSION['mot_de_passe'];
 
-}
-else{
-
+}else{
 	$email=$_POST['email'];
 	$mot_de_passe=$_POST['mot_de_passe'];
 	}
 
 
-$requser=$bdd->prepare("SELECT email,mot_de_passe FROM adherent WHERE email=? AND mot_de_passe =?");
-$requser->execute(array($email,$mot_de_passe));
-$userexist=$requser->rowCount();
+$requser=$bdd->prepare("SELECT mot_de_passe FROM adherent WHERE email=?");
+$requser->execute(array($email));
+while ($donnees=$requser->fetch())
+{
+    $result = password_verify($mot_de_passe, $donnees['mot_de_passe']);
+}
 
-
-if ($userexist==1)
+if ($result == 1)
  {
      $req = $bdd->prepare('SELECT id, nom, prenom FROM `adherent` WHERE email = ?');
      $req->execute(array($email));
@@ -40,14 +40,9 @@ if ($userexist==1)
 
      echo '<strong>'.'Vous êtes bien connecter '.$_SESSION['prenom'].' '.$_SESSION['nom'].'</strong>';
 
-}
-	else	
-	{
-
+}else{
 		$_SESSION['session_active']=2;
-		
 		header("Location: Page_acceuil.php");
-	
 }	
 
 ?>
