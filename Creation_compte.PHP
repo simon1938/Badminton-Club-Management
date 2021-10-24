@@ -7,8 +7,7 @@
 
 
 
-	$bdd = new PDO('mysql:host=localhost;dbname=badminton;charset=utf8', 'root', '');
-
+include 'connexion_bdd.php';
 
 $req=$bdd->prepare('SELECT id FROM adherent WHERE nom=?');
 		$req->execute([$_POST['nom']]);

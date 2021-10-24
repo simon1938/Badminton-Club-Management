@@ -1,7 +1,6 @@
 <?php
 session_start();
-
-$bdd = new PDO('mysql:host=localhost;dbname=badminton', 'root', '');
+include 'connexion_bdd.php';
 /*
 $nom=$_POST['nom'];
 $mot_de_passe=$_POST['mot_de_passe'];

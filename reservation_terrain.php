@@ -51,8 +51,7 @@
 
 		<?php
 
-		$bdd = new PDO('mysql:host=localhost;dbname=badminton;charset=utf8', 'root', '');
-
+        include 'connexion_bdd.php';
 		$reponse=$bdd->query('SELECT nom FROM adherent');
         $reponse->execute();
 

@@ -18,8 +18,7 @@
 <p>
 	<?php
 
-$bdd = new PDO('mysql:host=localhost;dbname=badminton;charset=utf8', 'root', '');
-
+    include 'connexion_bdd.php';
 
 if (isset($_POST['BT_nom']))
  {

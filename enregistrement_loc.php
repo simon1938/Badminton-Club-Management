@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $bdd = new PDO('mysql:host=localhost;dbname=badminton', 'root', '');
+    include 'connexion_bdd.php';
     $id = $_SESSION['id'];
 
     if (isset($_POST['Valider']))
