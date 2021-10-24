@@ -15,6 +15,7 @@
 </fieldset>
 
 <?php
+include 'connexion_bdd.php';
 if(isset($_POST['envoyer'])) {
 
     if ($_POST['choix'] == "date")
@@ -22,8 +23,25 @@ if(isset($_POST['envoyer'])) {
         echo 'Vous avez choisis l\'option date';
         ?>
         <fieldset>
-            <form method="post" action="enregistrement_cours.php">
-                <label>Sélectionner un jour<input type="date" name="jour" max="2023-01-01" required> </label>
+            <form method="post" action="inscription_cours.php">
+                <p><select name="jour"></p>
+
+                <?php
+
+                $reponse=$bdd->query('SELECT date_cours FROM cours');
+                $reponse->execute();
+
+                while ($donnees=$reponse->fetch())
+                {
+                    ?>
+                    <option value="<?php echo $donnees['date_cours'];?>"> <?php echo $donnees['date_cours'];?> </option>
+
+                    <?php
+
+                }
+
+                ?>
+
                 <br><br>
                 <label>Sélectionner une plage horaire<input type="time" name="heure" min="08:00" max="19:00" step="3600" required></label>
                 <br><br>

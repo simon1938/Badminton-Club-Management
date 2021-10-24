@@ -8,8 +8,10 @@
 	<h1>Menus des réservations terrains </h1>
 	<h2>Veuillez compléter tout les champs concernant votre réservation </h2>
 		<fieldset>
-		<form methode="POST" action="resultat_reservation_terrain.php">
+		<from methode="post" action="">
 
+		<label for="numero_terrain">Le numéro de Terrain</label>
+		<p><input type="int" name="numero_terrain"></p>
 		
 		<label for="date_reservation">date de reservation</label>
 		<p><input type="date" name="date_reservation"></p>
@@ -19,19 +21,27 @@
 		
             <p><label for="type_terrain">Type de Terrain</label></p>
             <select name="type_terrain">
-
             <option value="Simple">Simple</option>
             <option value="Double">Double</option>
            <p> </select></p>
 
 
             <p><label for="nombre_invite">Selectionner le nombre d'adherents avec qui vous voulez jouer </label></p>
-            <select name="nombre_invite" id="nombre_invite">
+            <select name="nombre_invite">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
                 <p></select></p>
 
+
+
+        <?php
+        if(isset($_POST['1'])){
+            echo 'salut la co';
+
+        }
+
+        ?>
 
 
 
@@ -41,8 +51,7 @@
 
 		<?php
 
-		$bdd = new PDO('mysql:host=localhost;dbname=badminton;charset=utf8', 'root', '');
-
+        include 'connexion_bdd.php';
 		$reponse=$bdd->query('SELECT nom FROM adherent');
         $reponse->execute();
 
@@ -59,15 +68,11 @@
 
 		?>
 		</select>
-            <p><input type="submit" name="valider" value="Valider"</p>
 		
-		 </form>
+		 </from>	
 
 		</fieldset>
-
-    <a href="connection_compte.PHP">Retourner sur votre espace utilisateur</a>
+		
 	
 </body>
 </html>
-
-
