@@ -16,53 +16,53 @@
 
 
 <p>
-	<?php
+                <?php
 
-$bdd = new PDO('mysql:host=localhost;dbname=badminton;charset=utf8', 'root', '');
-
-
-if (isset($_POST['BT_nom']))
- {
-
-$reponse=$bdd->query("SELECT nom, prenom FROM adherent ORDER BY nom");
-
-while ($donnees=$reponse->fetch()) {
-	echo $donnees['nom'].' '.$donnees['prenom'].'<br />';
-}
+            $bdd = new PDO('mysql:host=localhost;dbname=badminton;charset=utf8', 'root', '');
 
 
-}
+            if (isset($_POST['BT_nom']))
+             {
+
+            $reponse=$bdd->query("SELECT nom, prenom FROM adherent ORDER BY nom");
+
+            while ($donnees=$reponse->fetch()) {
+                echo $donnees['nom'].' '.$donnees['prenom'].'<br />';
+            }
 
 
-if (isset($_POST['BT_email']))
- {	
-
-$reponse=$bdd->query("SELECT nom, prenom FROM adherent ORDER BY email ");
-
-while ($donnees=$reponse->fetch()) {
-	echo $donnees['nom'].' '.$donnees['prenom'].'<br />';
-}
+            }
 
 
-}
+            if (isset($_POST['BT_email']))
+             {
+
+            $reponse=$bdd->query("SELECT nom, prenom FROM adherent ORDER BY email ");
+
+            while ($donnees=$reponse->fetch()) {
+                echo $donnees['nom'].' '.$donnees['prenom'].'<br />';
+            }
 
 
-if (isset($_POST['BT_normal']))
- {
-
-$reponse=$bdd->query("SELECT nom, prenom FROM adherent ");
-
-while ($donnees=$reponse->fetch()) {
-	echo $donnees['nom'].' '.$donnees['prenom'].'<br />';
-}
+            }
 
 
-}
+            if (isset($_POST['BT_normal']))
+             {
+
+            $reponse=$bdd->query("SELECT nom, prenom FROM adherent ");
+
+            while ($donnees=$reponse->fetch()) {
+                echo $donnees['nom'].' '.$donnees['prenom'].'<br />';
+            }
 
 
-	?>
-</p>
-	
+            }
+
+
+                ?>
+            </p>
+
 	<a href="connection_compte.PHP">Retourner sur votre espace utilisateur</a>
 </body>
 </html>
