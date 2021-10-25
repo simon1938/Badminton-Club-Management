@@ -6,20 +6,19 @@ $id = $_SESSION['id'];
 
 if(isset($_POST['envoyer2'])){
 
-            $req=$bdd->prepare('SELECT id FROM inscription_cours WHERE date_cours = ? AND heure_debut = ?');
+            $req=$bdd->prepare('INSERT INTO cours(date_cours,horaire) SELECT id VALUES (?,?)');
         $req->execute(array(
             $_POST['jour'],
-            $_POST['heure']));
+            $_POST['heure']))
 
 		while ($donnees=$req->fetch()) 
 		{
-		    echo $donnees['id'];
 		}
 
-        $rep=$bdd->prepare('INSERT INTO inscription_cours(id_adherent,id_cours) VALUES (?,?)');
-        $rep->execute(array(
+        $req=$bdd->prepare('INSERT INTO inscription_cours(id_adherent,id_cours) VALUES (?,?)');
+        $req->execute(array(
             $id,
             $donnees));
         }
-/*header("Location: cours2.php");*/
+header("Location: cours2.php");
 ?>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'connexion_bdd.php';
+
 /*
 $nom=$_POST['nom'];
 $mot_de_passe=$_POST['mot_de_passe'];
@@ -16,7 +16,7 @@ if ($_SESSION['session_active']==1)
 	$mot_de_passe=$_POST['mot_de_passe'];
 	}
 
-
+include 'connexion_bdd.php';
 $requser=$bdd->prepare("SELECT mot_de_passe FROM adherent WHERE email=?");
 $requser->execute(array($email));
 while ($donnees=$requser->fetch())
@@ -59,7 +59,7 @@ if ($result == 1)
 	<br><br>
 	<a href="reservation_terrain.php"><input type="submit" value="Reserver un terrain"></a>
 	<br><br>
-	<a href="voir_terrain_disponible.PHP"><input type="submit" value="Voir les terrain disponible"></a>
+	<a href="voir_terrain.php"><input type="submit" value="Voir les terrain disponible"></a>
 	<br><br>
 	<a href="location_materiel.PHP"><input type="submit" value="Location de materiel"></a>
 	<br><br>
