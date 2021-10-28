@@ -15,7 +15,7 @@
         <p><input type="date" name="date_reservation"></p>
 
         <label for="horaire">Votre Horaire</label>
-        <p><input type="time" name="horaire"></p>
+        <p><input type="time" name="horaire" max="16:00" min="10:00" required></p>
 
 
         <label>Choisissez le nom du Terrain </label>
@@ -43,19 +43,11 @@
         </select>
 
 
-        <p><label>Selectionner le nombre d'adherents avec qui vous voulez jouer </label></p>
-        <select name="nombre_invite" id="nombre_invite">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <p></select></p>
-
-
-
 
 
         <label for="autre_adherent">Adherent partageant votre réservation </label>
-        <p><select name="autre_adherent"></p>
+        <p><select name="autre_adherent1"></p>
+        <option value="pas_inviter">Inviter Personne</option>
 
         <?php
 
@@ -77,8 +69,65 @@
 
         ?>
         </select>
-        <p><input type="submit" name="valider" value="Valider"</p>
 
+
+        <label for="autre_adherent1">Adherent partageant votre réservation </label>
+        <p><select name="autre_adherent2"></p>
+        <option value="pas_inviter">Inviter Personne</option>
+
+        <?php
+
+        $bdd = new PDO('mysql:host=localhost;dbname=badminton;charset=utf8', 'root', '');
+
+        $reponse=$bdd->query('SELECT nom FROM adherent');
+        $reponse->execute();
+
+        while ($donnees=$reponse->fetch())
+        {
+            ?>
+            <option value="<?php echo $donnees['nom'];?>"> <?php echo $donnees['nom'];?> </option>
+
+
+
+            <?php
+
+        }
+
+        ?>
+        </select>
+
+
+        <label for="autre_adherent">Adherent partageant votre réservation </label>
+        <p><select name="autre_adherent3"></p>
+        <option value="pas_inviter">Inviter Personne</option>
+
+        <?php
+
+        $bdd = new PDO('mysql:host=localhost;dbname=badminton;charset=utf8', 'root', '');
+
+        $reponse=$bdd->query('SELECT nom FROM adherent');
+        $reponse->execute();
+
+        while ($donnees=$reponse->fetch())
+        {
+            ?>
+            <option value="<?php echo $donnees['nom'];?>"> <?php echo $donnees['nom'];?> </option>
+
+
+
+            <?php
+
+        }
+
+        ?>
+        </select>
+        <p>
+            Inviter un non adherent ?</br>
+        <input type="radio" name="inviter" value=1/> <label>OUI</label><br />
+        <input type="radio" name="inviter" value=0/> <label>NON</label><br />
+
+        <p><input type="submit" name="valider" value="Valider"</p>
+    </p>
     </form>
 
 </fieldset>
