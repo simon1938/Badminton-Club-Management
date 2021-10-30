@@ -4,7 +4,7 @@ include 'connexion_bdd.php';
 $id = $_SESSION['id'];
 
 
-if(isset($_POST['envoyer2'])) {
+if(isset($_POST['envoyer'])) {
 
 
     $req = $bdd->prepare('SELECT id FROM cours WHERE date_cours = ? AND heure_debut = ?');
@@ -22,6 +22,6 @@ if(isset($_POST['envoyer2'])) {
         $id_cours));
 
 }
-    /*header("Location: cours2.php");*/
+    header("Location: connection_compte.php");
 
 ?>
