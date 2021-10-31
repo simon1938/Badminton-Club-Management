@@ -11,7 +11,7 @@
     <form method="POST" action="resultat_reservation_terrain.php">
 
 
-        <label for="date_reservation">date de reservation</label>
+       <label for="date_reservation">date de reservation</label>
         <p><input type="date" name="date_reservation"></p>
 
         <label for="horaire">Votre Horaire</label>

@@ -37,7 +37,7 @@
         <input type="submit" name="Valider">
 
     </form>
-
+    <a href="connection_compte.PHP">Retourner sur votre espace utilisateur</a>
 
 </fieldset>
 
