@@ -15,7 +15,7 @@
         <p><input type="date" name="date_reservation"></p>
 
         <label for="horaire">Votre Horaire</label>
-        <p><input type="time" name="horaire" max="16:00" min="10:00" required></p>
+        <p><input type="time" name="horaire" value="12:00" step="3600" max="16:00" min="10:00" required></p>
 
 
         <label>Choisissez le nom du Terrain </label>
