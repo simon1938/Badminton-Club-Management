@@ -8,11 +8,12 @@ $_SESSION['session_active']=0;
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css" />
 	<title>Badminton</title>
 </head>
 <body>
 	<h1>Bienvenue sur le site du club de Badminton</h1>
-
+    <div id="header"></div>
 	<form method="post" action="connection_compte.php">
 
 		<fieldset>
@@ -21,13 +22,13 @@ $_SESSION['session_active']=0;
 
 			<form action="connection_compte.PHP" method="post">
 
-			<label for="email">Votre Email</label>
+			<label for="email" id="email">Adresse mail</label>
 			<input type="text" name="email" id="email" maxlength="100" placeholder="jeanlassalle@gmail.com">
-
-			<label for="mot_de_passe">Entrez votre mot de passe</label>
+            <br><br>
+			<label for="mot_de_passe" id="mot_de_passe">Mot de passe</label>
 			<input type="password" name="mot_de_passe" id="mot_de_passe" >
-
-			<input type="submit" name="Valider">
+                <br><br>
+			<input type="submit" name="Valider" id="valid">
 
 
 				</form>

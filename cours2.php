@@ -87,6 +87,9 @@ $id = $_SESSION['id'];
                 <input type="submit" name="ajouter_cours" value = "Ajouter un cours">
             </form>
 
+            <form method="post" action="suppression_cours.php">
+                <input type="submit" name="suppr_cours" value = "Supprimer un cours">
+            </form>
         <?php
     }else{}
     ?>

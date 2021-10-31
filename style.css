@@ -1,0 +1,61 @@
+body{
+    margin: 0px;
+    margin-top: 0px;
+}
+#header{
+    
+    height: 90px;
+    margin: 0;
+    background : black;
+}
+h1{
+    text-align: center;
+    position: relative;
+    top: 50px;
+}
+
+legend {
+    position: relative;
+    left: 75px;
+    width: 150px;
+    height: 50px;
+
+}
+form {
+    position: center;
+
+    width  : 300px;
+    height : 200px;
+    margin : auto;
+
+}
+fieldset{
+    position: relative;
+    top: 200px;
+
+    background: white;
+    height: 250px;
+    border-style: inset;
+}
+
+#email{
+    position: relative;
+    top: 10px;
+}
+#mot_de_passe{
+    position: relative;
+    top: 50px;
+}
+textarea {
+    vertical-align: top;
+}
+a{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+#valid{
+    position: relative;
+    left: 100px;
+    top: 100px;
+}
