@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+
+
 if ($_SESSION['session_active']==1)
 {
      $email=$_SESSION['email'];
@@ -21,9 +23,9 @@ while ($donnees=$requser->fetch())
 
 if ($result == 1)
  {
-     $req = $bdd->prepare('SELECT id, nom, prenom FROM `adherent` WHERE email = ?');
+     $req = $bdd->prepare('SELECT id, nom, prenom, statut FROM `adherent` WHERE email = ?');
      $req->execute(array($email));
-     while ($donnees = $req->fetch()){$id = $donnees['id']; $nom = $donnees['nom']; $prenom = $donnees['prenom'];};
+     while ($donnees = $req->fetch()){$id = $donnees['id']; $nom = $donnees['nom']; $prenom = $donnees['prenom'];;$statut = $donnees['statut'];};
 
      $_SESSION['email']=$email;
      $_SESSION['mot_de_passe']=$mot_de_passe;
@@ -32,12 +34,20 @@ if ($result == 1)
      $_SESSION['nom']=$nom;
      $_SESSION['prenom']=$prenom;
 
+     if($statut == 1){
+         $_SESSION['statut']= "administrateur";
+     }else{
+         $_SESSION['statut']= "utilisateur";
+     }
+
      echo '<strong>'.'Vous êtes bien connecter '.$_SESSION['prenom'].' '.$_SESSION['nom'].'</strong>';
 
 }else{
 		$_SESSION['session_active']=2;
 		header("Location: Page_acceuil.php");
-}	
+}
+
+echo "statut : ".$_SESSION['statut'];
 
 ?>
 
@@ -62,10 +72,8 @@ if ($result == 1)
     <br><br>
     <a href="modifier_information_compte.php"><input type="submit" value="Modifier vos information personnelle "></a>
     <br><br>
-
     <a href="modifier_reservation_existante.php"><input type="submit" value="Modifier vos reservation de terrain "></a>
     <br><br>
-
     <a href="Page_acceuil.php"><input type="submit" value="Déconnexion"></a>
 	<!--
 
