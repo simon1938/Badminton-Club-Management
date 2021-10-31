@@ -77,14 +77,7 @@ $i=0;
             echo 'Créneaux déja pris veuillez choisir un autre créneaux';
         }else
         {
-            echo $date_reservation.
-            $horaire.
-            $nom_terrain.
-            $_SESSION['id'].'<p></p>'.
-                $autre_adherent1.
-                $autre_adherent2.
-                $autre_adherent3
-            ;
+                       ;
             //insert dans la base le créneaux.
             $bdd = new PDO('mysql:host=localhost;dbname=badminton', 'root', '');
             $requser=$bdd->prepare("INSERT INTO repertoire(date_reservation,horaire,nom_terrain,id_joueur,inviter_non_adherent) VALUES(?,?,?,?,?) ");

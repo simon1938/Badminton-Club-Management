@@ -1,11 +1,6 @@
 <?php
 session_start();
 
-/*
-$nom=$_POST['nom'];
-$mot_de_passe=$_POST['mot_de_passe'];
-*/
-
 if ($_SESSION['session_active']==1)
 {
      $email=$_SESSION['email'];
@@ -64,6 +59,8 @@ if ($result == 1)
 	<a href="location_materiel.PHP"><input type="submit" value="Location de materiel"></a>
 	<br><br>
 	<a href="cours2.PHP"><input type="submit" value="cours"></a>
+    <br><br>
+    <a href="modifier_information_compte.php"><input type="submit" value="Modifier vos information personnelle "></a>
     <br><br>
 
     <a href="Page_acceuil.php"><input type="submit" value="Déconnexion"></a>
