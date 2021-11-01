@@ -17,22 +17,20 @@ if(empty($_POST['horaire'])
 
 }
 else {
-    $horaire = $_POST['horaire'];
-    $date_reservation = $_POST['date_reservation'];
-    $nom_terrain = $_POST['nom_terrain'];
+    $_SESSION['Modif_horaire'] = $_POST['horaire'];
+    $_SESSION['Modif_date_reservation']=$_POST['date_reservation'];
+    $_SESSION['Modif_nom_terrain']= $_POST['nom_terrain'];
     $id_joueur = $_SESSION['id'];
 
 
     $bdd = new PDO('mysql:host=localhost;dbname=badminton', 'root', '');
     $requser = $bdd->prepare("SELECT id FROM repertoire WHERE nom_terrain=? AND date_reservation=? AND horaire=? AND id_joueur=?");
-    $requser->execute(array($nom_terrain, $date_reservation, $horaire, $id_joueur));
+    $requser->execute(array($_SESSION['Modif_nom_terrain'], $_SESSION['Modif_date_reservation'], $_SESSION['Modif_horaire'], $id_joueur));
 
     $id = $requser->fetch();
     if ($id) {
-        echo 'votre réservation reconnu' .
-            $date_reservation = $_POST['date_reservation'] . $horaire = $_POST['horaire'] .
-                    $nom_terrain = $_POST['nom_terrain'] .
-                        $id_joueur = $_SESSION['id'];
+            $_SESSION['id_reservation_Modif']=$id ['id'];
+            header("location:modifier_Reservation_reconue.php");
 
     }
     else
