@@ -28,6 +28,9 @@ $_SESSION['session_active']=0;
 			<label for="mot_de_passe" id="mot_de_passe">Mot de passe</label>
 			<input type="password" name="mot_de_passe" id="mot_de_passe" >
                 <br><br>
+
+             <label>Entrez le code VIP (facultatif seulement si vous etes un VIP) </label>
+             <input type="tel" name="CODE_VIP">
 			<input type="submit" name="Valider" id="valid">
 
 
