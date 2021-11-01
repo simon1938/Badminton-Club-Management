@@ -5,45 +5,45 @@ $nom = 'BONNEFOY'/*$_SESSION['nom']*/;
 ?>
 <html>
 <body>
-<table>
 
-    <?php
-    $today = date('Y-m-d');
-    $rdv[date('d M Y', strtotime($today))]["16"] = "Mémé -_-";
-    $jour = array(null, date('d M Y', strtotime($today)), date('d M Y', strtotime("$today +1 day")),
-        date('d M Y', strtotime("$today +2 day")), date('d M Y', strtotime("$today +3 day")),
-        date('d M Y', strtotime("$today +4 day")), date('d M Y', strtotime("$today +5 day")),
-        date('d M Y', strtotime("$today +6 day")));
-    echo "<tr><th>Horaires&nbsp</th>";
-    for($x = 1; $x < 8; $x++){
-        echo "<th>&nbsp".$jour[$x]."&nbsp</th>";
+<fieldset>
+    <legend>Prochains cours programmés</legend>
+    <form method="post">
+    <label> Veuillez choisir  le cours que vous souhaitez supprimer
+    <select name="suppr" required>
 
-   }
-    echo"</tr>";
-    for($j = 8; $j < 20; $j += 1) {
-        echo "<tr>";
-        for($i = 0; $i < 7; $i++) {
-            if($i == 0) {
-                $heure = str_replace(".5", ":30", $j);
-                echo "<td class=\"time\">".$heure."</td>";
-            }
-            echo "<td>";
-            if(isset($rdv[$jour[$i+1]][$heure])) {
-                echo $rdv[$jour[$i+1]][$heure];
-            }
-            echo "</td>";
+        <?php
+        $reponse=$bdd->prepare('SELECT id, heure_debut, heure_fin, date_cours FROM cours WHERE nom_prof = ? ORDER BY date_cours;');
+        $reponse->execute([$nom]);
+        while ($donnees=$reponse->fetch())
+        {
+            ?>
+            <option value="<?php echo $donnees['id'];?>"> <?php echo date('d M Y', strtotime($donnees['date_cours']))." ".date('H:i',strtotime($donnees['heure_debut']))." - ".date('H:i',strtotime($donnees['heure_fin']));?> </option>
+
+            <?php
+            $date = date('d M Y', strtotime($donnees['date_cours']));
+            $heure_debut = date('H:i',strtotime($donnees['heure_debut']));
+            $heure_fin = date('H:i',strtotime($donnees['heure_fin']));
         }
-        echo "</tr>";
-    }
-        $requete = $bdd->prepare("SELECT heure_debut, heure_fin, date_cours FROM cours WHERE nom_prof = ?");
+        ?>
+    </select>
 
-        $requete->execute(array($nom));
+    </label>
 
-        while ($donnees = $requete->fetch()) {
+    <input type="submit" value="Supprimer" name="valid_suppr">
+    </form>
+</fieldset>
+<?php
+if(isset($_POST['valid_suppr'])){
+    $supprimer_inscription=$bdd->prepare('DELETE FROM inscription_cours WHERE id_cours = ?');
+    $supprimer_inscription->execute([$_POST['suppr']]);
 
-        }
-
-    ?>
-</table>
+    $supprimer_cours=$bdd->prepare('DELETE FROM cours WHERE id = ?');
+    $supprimer_cours->execute([$_POST['suppr']]);
+    echo "Le cours du ".$date." de ".$heure_debut." à ".$heure_fin." a bien été supprimé";
+}
+?>
+<br>
+<a href="cours2.php">Retourner sur l'espace cours</a>
 </body>
 </html>

@@ -47,10 +47,14 @@ else
 echo'yolamoula';
 
 
- 
+ if($_POST['code_admin'] == 'XAMPP'){
+     $admin = 1;
+ }else{
+     $admin = 0;
+ }
 
 
-	$req=$bdd->prepare('INSERT INTO adherent(nom,prenom,email,adresse,date_naissance,date_adhesion,mot_de_passe) VALUES (?,?,?,?,?,?,?)');
+	$req=$bdd->prepare('INSERT INTO adherent(nom,prenom,email,adresse,date_naissance,date_adhesion,mot_de_passe,statut) VALUES (?,?,?,?,?,?,?,?)');
 	$req->execute(array(
 		 $_POST['nom'],
 		 $_POST['prenom'],
@@ -59,6 +63,7 @@ echo'yolamoula';
 		 $_POST['date_naissance'],
 		 $_POST['date_adhesion'],
 		 password_hash($_POST['mot_de_passe'], PASSWORD_DEFAULT),
+        $admin
 		 )); 
 
 		}

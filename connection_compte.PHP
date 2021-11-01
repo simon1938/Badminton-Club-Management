@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['STATUT']=0;
+
 
 
 if ($_SESSION['session_active']==1)
@@ -33,24 +33,20 @@ if ($result == 1)
      $_SESSION['id']=$id;
      $_SESSION['nom']=$nom;
      $_SESSION['prenom']=$prenom;
-/*
+
      if($statut == 1){
          $_SESSION['statut']= "administrateur";
      }else{
          $_SESSION['statut']= "utilisateur";
      }
-*/
-     echo '<strong>'.'Vous êtes bien connecter '.$_SESSION['prenom'].' '.$_SESSION['nom'].'  </br></strong>';
 
+     echo '<strong>'.'Vous êtes bien connecter '.$_SESSION['prenom'].' '.$_SESSION['nom'].'  </br></strong>';
+     echo $_SESSION['statut'];
 }else{
 		$_SESSION['session_active']=2;
 		header("Location: Page_acceuil.php");
 }
-if($_POST['CODE_VIP']=='XAMPP')
-{
-    $_SESSION['STATUT']=1;
-    echo "<strong>Bienvuenue chère administrateur</strong>";
-}
+
 
 
 ?>
@@ -64,7 +60,7 @@ if($_POST['CODE_VIP']=='XAMPP')
 <body>
 	<h1>Veuillez choisir ce que vous voulez faire</h1>
     <?php
-    if($_SESSION['STATUT']==1) {
+    if($_SESSION['statut']=="administrateur") {
         echo '<p><a href="VIP_ajouter_modifier_terrain.php"><input type="submit" value="Ajouter/modifier les terrains existant"></a></p>';
     }
     ?>

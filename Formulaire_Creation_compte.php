@@ -33,6 +33,10 @@
 			<label for="mot_de_passe">Mot de passe</label>
 			<input type="password" name="mot_de_passe" id="mot_de_passe">
 
+            <label>
+                <input type="password" name="code_admin" id="code_admin">
+            </label>
+
 			<input type="submit" name="Valider">
 		
 		</form>
