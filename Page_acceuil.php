@@ -8,16 +8,19 @@ $_SESSION['session_active']=0;
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
-    <!--<link rel="stylesheet" href="style.css" />-->
+    <link rel="stylesheet" href="style.css" />
 	<title>Badminton</title>
 </head>
 <body>
-	<h1>Bienvenue sur le site du club de Badminton</h1>
-    <div id="header"></div>
+    <div id="header">
+        <h1>Bienvenue sur le site du club de Badminton</h1>
+    </div>
+
+
 	<form method="post" action="connection_compte.php">
 
 		<fieldset>
-			<legend>Vous connnecter</legend>
+			<legend>Connexion</legend>
 
 
 			<form action="connection_compte.PHP" method="post">
@@ -28,14 +31,14 @@ $_SESSION['session_active']=0;
 			<label for="mot_de_passe" id="mot_de_passe">Mot de passe</label>
 			<input type="password" name="mot_de_passe" id="mot_de_passe" >
                 <br><br>
-			<input type="submit" name="Valider" id="valid">
+			<input type="submit" value="Se connecter" name="Valider" id="valid">
 
 
 				</form>
 
 		</fieldset>
 		
-		<a href="Formulaire_Creation_compte.php">Ce Créer un compte</a>
+		<a href="Formulaire_Creation_compte.php">S'inscrire</a>
 
 
 	</form>

@@ -1,23 +1,24 @@
 body{
     margin: 0px;
-    margin-top: 0px;
+    background-image: url("image/badminton.jpg");
+    opacity: initial;
 }
 #header{
-    
     height: 90px;
-    margin: 0;
-    background : black;
+    background-color: darkgrey;
 }
 h1{
+    margin-top: 0px;
     text-align: center;
     position: relative;
-    top: 50px;
+    top: 25px;
 }
 
 legend {
-    position: relative;
-    left: 75px;
-    width: 150px;
+    font-size: 1.8em;
+    position: absolute;
+    text-align: center;
+    width: 250px;
     height: 50px;
 
 }
@@ -32,30 +33,28 @@ form {
 fieldset{
     position: relative;
     top: 200px;
-
-    background: white;
+    background-color: darkgrey;
     height: 250px;
     border-style: inset;
 }
 
 #email{
     position: relative;
-    top: 10px;
+    top: 70px;
 }
 #mot_de_passe{
     position: relative;
-    top: 50px;
-}
-textarea {
-    vertical-align: top;
+    top: 90px;
 }
 a{
+    font-size: 1.3em;
     position: fixed;
-    top: 20px;
+    top: 15px;
     right: 20px;
 }
 #valid{
     position: relative;
-    left: 100px;
-    top: 100px;
+    width: 100px;
+    left: 75px;
+    top: 120px;
 }

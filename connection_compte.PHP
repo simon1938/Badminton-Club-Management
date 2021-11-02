@@ -72,8 +72,9 @@ if ($result == 1)
 	<br><br>
 	<a href="location_materiel.PHP"><input type="submit" value="Location de materiel"></a>
 	<br><br>
-	<a href="cours2.PHP"><input type="submit" value="cours"></a>
-    <br><br>
+    <form method="post" action="cours2.php">
+	<a href="cours2.PHP"><input type="submit" value="cours" name="cours"></a>
+    </form>
     <a href="modifier_information_compte.php"><input type="submit" value="Modifier vos information personnelle "></a>
     <br><br>
     <a href="modifier_reservation_existante.php"><input type="submit" value="Modifier vos reservation de terrain "></a>

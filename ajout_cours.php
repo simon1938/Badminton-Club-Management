@@ -12,6 +12,7 @@ $nom = $_SESSION['nom'];
         <select name="jour" required>
             <option value = "">Veuillez choisir un jour</option>
             <?php
+            //On propose à l'administrateur de créer un cours durant les 30 prochains jour à l'aide d'un menu déroulant
             $today = date('Y-m-d');
             for($x = 1; $x < 30; $x++){
                 ?>
@@ -52,6 +53,8 @@ $nom = $_SESSION['nom'];
 
 
 <?php
+//ON vérifie que le cours n'existe pas encore
+//Si ce n'est pas le cas on le crée
     if(isset($_POST['create'])){
         $requete = $bdd->prepare("SELECT id FROM cours WHERE date_cours = ? AND heure_debut = ? AND nom_prof = ?");
 

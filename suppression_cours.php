@@ -7,6 +7,7 @@ $nom = 'BONNEFOY'/*$_SESSION['nom']*/;
 <body>
 
 <fieldset>
+    <!--On affiche les prochains cours programmés pour l'administrateur connecté-->
     <legend>Prochains cours programmés</legend>
     <form method="post">
     <label> Veuillez choisir  le cours que vous souhaitez supprimer
@@ -34,13 +35,15 @@ $nom = 'BONNEFOY'/*$_SESSION['nom']*/;
     </form>
 </fieldset>
 <?php
+//L'administrateur peut supprimer un des cours qu'il avait programmé à l'aide d'un menu déroulant
 if(isset($_POST['valid_suppr'])){
+    //On supprime les inscription à ce cours
     $supprimer_inscription=$bdd->prepare('DELETE FROM inscription_cours WHERE id_cours = ?');
     $supprimer_inscription->execute([$_POST['suppr']]);
-
+    //on supprime le cours de la bdd
     $supprimer_cours=$bdd->prepare('DELETE FROM cours WHERE id = ?');
     $supprimer_cours->execute([$_POST['suppr']]);
-    echo "Le cours du ".$date." de ".$heure_debut." à ".$heure_fin." a bien été supprimé";
+    header("Location: cours2.php");
 }
 ?>
 <br>
