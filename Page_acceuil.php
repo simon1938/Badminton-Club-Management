@@ -12,10 +12,13 @@ $_SESSION['session_active']=0;
 	<title>Badminton</title>
 </head>
 <body>
+
     <div id="header">
         <h1>Bienvenue sur le site du club de Badminton</h1>
     </div>
-
+    <div class="img_fond">
+        <img src="https://www.neuillysurmarne.fr/wp-content/uploads/2015/10/BADMINTON.jpg">
+    </div>
 
 	<form method="post" action="connection_compte.php">
 

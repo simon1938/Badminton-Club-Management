@@ -1,8 +1,16 @@
 body{
     margin: 0px;
-    background-image: url("image/badminton.jpg");
-    opacity: initial;
+
+
 }
+.img_fond img{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    opacity: 0.5;
+
+}
+
 #header{
     height: 90px;
     background-color: darkgrey;
