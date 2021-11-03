@@ -11,6 +11,16 @@
 	<title>Location de matériel</title>
 </head>
 <body>
+    <?php
+        $requete = $bdd->prepare("SELECT id FROM materiel WHERE date_retour < ?");
+        $requete->execute(array(date('Y-m-d')));
+        while ($donnees=$requete->fetch())
+        {
+            //On supprime les inscription reliées à cet id
+            $supprimer_location=$bdd->prepare('DELETE FROM materiel WHERE id = ?');
+            $supprimer_location->execute([$donnees['id']]);
+    }
+    ?>
 	<h1>Location de matériel</h1>
 	<fieldset>
 		<legend>Vos locations en cours</legend>
@@ -28,7 +38,7 @@
 			?>	
 	</fieldset>
 	<br>
-	<form method="post" action="formulaire_nouvelle_location.html">
+	<form method="post" action="formulaire_nouvelle_location.php">
 		<input type="submit" value="Démarrer une location">
 	</form>
 

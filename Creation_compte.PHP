@@ -4,7 +4,7 @@
 
 
 <?php
-
+$today = date('Y-m-d');
 
 
 include 'connexion_bdd.php';
@@ -27,7 +27,6 @@ if(empty($_POST['nom'])||
    empty($_POST['adresse'])||
    empty($_POST['prenom'])||
    empty($_POST['date_naissance'])||
-   empty($_POST['date_adhesion'])||
    empty($_POST['mot_de_passe'])
 )
 		{
@@ -61,7 +60,7 @@ echo'yolamoula';
 		 $_POST['email'],
 		 $_POST['adresse'],
 		 $_POST['date_naissance'],
-		 $_POST['date_adhesion'],
+		 $today,
 		 password_hash($_POST['mot_de_passe'], PASSWORD_DEFAULT),
         $admin
 		 )); 
