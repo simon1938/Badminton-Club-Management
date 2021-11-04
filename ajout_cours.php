@@ -42,10 +42,6 @@ $nom = $_SESSION['nom'];
             <option value="17:00">17:00 - 18:00</option>
             <option value="18:00">18:00 - 19:00</option>
         </select>
-        <br><br>
-        <label> le prof de ce cours sera :
-            <input type="text" value = "<?php echo "(Mr/Mme) ".$nom;?>"name="nom_prof" required readonly="true">
-        </label>
     <br><br>
         <input type="submit" value="Créer le cours" name="create">
     </form>

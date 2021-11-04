@@ -38,7 +38,7 @@ if($_SESSION['statut'] == 'utilisateur'){
     $requete->execute(array($id));
     while ($donnees=$requete->fetch())
     {
-        echo 'Vous êtes inscrit au cours de'.$donnees['nom_prof'].' de '.$donnees['heure_debut'].'
+        echo 'Vous êtes inscrit au cours de '.$donnees['nom_prof'].' de '.$donnees['heure_debut'].'
          à '.$donnees['heure_fin'].' le '.date('d M Y', strtotime($donnees['date_cours'])).'<br />';
     }
     ?>
