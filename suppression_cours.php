@@ -1,7 +1,7 @@
 <?php
 include 'connexion_bdd.php';
 session_start();
-$nom = 'BONNEFOY'/*$_SESSION['nom']*/;
+$nom =$_SESSION['nom'];
 ?>
 <html>
 <body>
