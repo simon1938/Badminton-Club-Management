@@ -14,6 +14,7 @@ $nom = 'BONNEFOY'/*$_SESSION['nom']*/;
     <select name="suppr" required>
 
         <?php
+        $bdd = new PDO('mysql:host=localhost;dbname=badminton', 'root', '');
         $reponse=$bdd->prepare('SELECT id, heure_debut, heure_fin, date_cours FROM cours WHERE nom_prof = ? ORDER BY date_cours;');
         $reponse->execute([$nom]);
         while ($donnees=$reponse->fetch())

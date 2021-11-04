@@ -78,6 +78,8 @@ if ($result == 1)
     <a href="modifier_information_compte.php"><input type="submit" value="Modifier vos information personnelle "></a>
     <br><br>
     <a href="modifier_reservation_existante.php"><input type="submit" value="Modifier vos reservation de terrain "></a>
+
+    <br><br><a href="annuler_reservation_existante.php"><input type="submit" value="Annuler vos reservation de terrain "></a>
     <br><br>
     <a href="Page_acceuil.php"><input type="submit" value="Déconnexion"></a>
 	<!--
