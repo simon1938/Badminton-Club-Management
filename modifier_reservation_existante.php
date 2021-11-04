@@ -8,10 +8,14 @@
     <h1>Modifier vos réservations actuelles</h1>
     <form method="post">
         <p><input type="submit" value="Voir mes reservation" name="Voir_mes_reservation"></p>
+        <?php
+        session_start();
+        if($_SESSION['statut']=='administrateur')
+       echo '<p><input type="submit" value="Voir TOUTE les reservation" name="Voir_TOUTE_les_reservation"></p>';
+        ?>
     <?php
-    session_start();
-    if(isset($_POST['Voir_mes_reservation']))
-    {
+
+    if(isset($_POST['Voir_mes_reservation'])) {
         $bdd = new PDO('mysql:host=localhost;dbname=badminton', 'root', '');
         $reponse = $bdd->prepare('SELECT date_reservation,horaire,nom_terrain FROM repertoire WHERE id_joueur=? ');
         $reponse->execute(array($_SESSION['id']));
@@ -19,7 +23,16 @@
             echo $donnees['date_reservation'] . ' ' . $donnees['horaire'] . $donnees['nom_terrain'] . '<br />';
 
         }
+    }
+    if(isset($_POST['Voir_TOUTE_les_reservation']))
+    {
+        $bdd = new PDO('mysql:host=localhost;dbname=badminton', 'root', '');
+        $reponse = $bdd->prepare('SELECT date_reservation,horaire,nom_terrain FROM repertoire ');
+        $reponse->execute();
+        while ($donnees = $reponse->fetch()) {
+            echo $donnees['date_reservation'] . ' ' . $donnees['horaire'] . $donnees['nom_terrain'] . '<br />';
 
+        }
     }
     ?>
     </form>

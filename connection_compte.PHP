@@ -62,6 +62,7 @@ if ($result == 1)
     <?php
     if($_SESSION['statut']=="administrateur") {
         echo '<p><a href="VIP_ajouter_modifier_terrain.php"><input type="submit" value="Ajouter/modifier les terrains existant"></a></p>';
+        echo '<p><a href="Voir_nb_reservation_adherent.php"><input type="submit" value="Voir le nombre de réservation par adherent "></a></p>';
     }
     ?>
 	<a href="liste des adherents.PHP"><input type="submit" value="Voir liste des adherents"></a>
