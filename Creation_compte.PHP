@@ -43,7 +43,7 @@ elseif($email)
 else
 {
 
-echo'yolamoula';
+echo'Votre compte a bien été créé';
 
 
  if($_POST['code_admin'] == 'XAMPP'){
