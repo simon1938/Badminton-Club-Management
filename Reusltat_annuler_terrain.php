@@ -12,13 +12,13 @@
      $reponse = $bdd->prepare("DELETE FROM inviter WHERE id_reservation =?");
 
      $reponse->execute(array($id_reservationp));
-            echo 'fait';
+            echo 'La Réservation a bien été supprimer';
 
 
     $bdd = new PDO('mysql:host=localhost;dbname=badminton', 'root', '');
     $reponse = $bdd->prepare("DELETE FROM repertoire WHERE id =?");
     $reponse->execute(array($id_reservationp));
-    echo 'fait';
+
 ?>
 <a href="connection_compte.PHP">Retourner sur votre espace utilisateur</a>
 </body>

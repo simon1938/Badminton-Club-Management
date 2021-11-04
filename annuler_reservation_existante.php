@@ -17,17 +17,36 @@
 session_start();
 
 $id=$_SESSION['id'];
-$bdd = new PDO('mysql:host=localhost;dbname=badminton', 'root', '');
-$reponse = $bdd->prepare("SELECT id,date_reservation,horaire,nom_terrain  FROM repertoire WHERE id_joueur=?");
+    if($_SESSION['statut']=='administrateur')
+        {
+        $bdd = new PDO('mysql:host=localhost;dbname=badminton', 'root', '');
+        $reponse = $bdd->prepare("SELECT id,date_reservation,horaire,nom_terrain  FROM repertoire");
 
-$reponse->execute([$id]);
+        $reponse->execute();
 
-while ($donnees = $reponse->fetch()) {
-   ?>
-    <option value="<?php echo $donnees['id'];?>"> <?php echo $donnees['date_reservation'] . '  ' . $donnees['horaire'] .'  '. $donnees['nom_terrain']?> </option>
-<?php
-            }
-?>
+        while ($donnees = $reponse->fetch()) {
+           ?>
+            <option value="<?php echo $donnees['id'];?>"> <?php echo $donnees['date_reservation'] . '  ' . $donnees['horaire'] .'  '. $donnees['nom_terrain']?> </option>
+        <?php
+                    }
+        }
+    else
+    {
+        $bdd = new PDO('mysql:host=localhost;dbname=badminton', 'root', '');
+        $reponse = $bdd->prepare("SELECT id,date_reservation,horaire,nom_terrain  FROM repertoire WHERE id_joueur=?");
+
+        $reponse->execute([$id]);
+
+        while ($donnees = $reponse->fetch()) {
+            ?>
+            <option value="<?php echo $donnees['id'];?>"> <?php echo $donnees['date_reservation'] . '  ' . $donnees['horaire'] .'  '. $donnees['nom_terrain']?> </option>
+            <?php
+        }
+    }
+
+
+
+        ?>
 
 
    </select>
