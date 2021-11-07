@@ -29,7 +29,7 @@ $_SESSION['session_active']=0;
 			<form action="connection_compte.PHP" method="post">
 
 			<label for="email" id="email">Adresse mail</label>
-			<input type="text" name="email" id="email" maxlength="100" placeholder="jeanlassalle@gmail.com">
+			<input type="text" name="email" id="email" maxlength="100" >
             <br><br>
 			<label for="mot_de_passe" id="mot_de_passe">Mot de passe</label>
 			<input type="password" name="mot_de_passe" id="mot_de_passe" >

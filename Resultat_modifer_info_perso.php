@@ -39,7 +39,7 @@ elseif($id)
 else
 {
 
-    echo'yolamoula';
+    echo'Votre compte a bien été créé';
 
 
 
